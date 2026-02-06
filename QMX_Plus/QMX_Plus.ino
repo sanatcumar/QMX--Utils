@@ -5,7 +5,8 @@ The software serial port interfaces with the QMX+ Ring(RX)to 11( soft serial TX)
 Change the pins as per your layout.
 Set the baudrate to 4800 in the QMX+ or change appropriately in the serial setup
 One can get the frequency using the CAT IF; command that returns the full status of the transiever
-I chose to use the FT; and FA/B; to keep it simple 
+I chose to use the FT; and FA/B; The CAT IF can get the frequency using just one call. It should be fairly
+straightforward to code it using this an example
 */
 
 #include <SoftwareSerial.h>
@@ -13,7 +14,7 @@ I chose to use the FT; and FA/B; to keep it simple
 SoftwareSerial mySerial(10, 11); // RX, TX  
 
 String cmd ;  // CAT command no "Enter" else QMX will think its a terminal
-String response ; // CAT response with a ";" for termination else QMX
+String response ; // CAT response with a ";" for termination
 long num; // converts the incomming string into integers
 long frequency;
 double wavelength;
